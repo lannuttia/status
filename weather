@@ -1,0 +1,8 @@
+#!/bin/sh
+
+name=$(basename -- "$0")
+data_dir="${XDG_DATA_HOME:-$HOME/.local/share}/dwmstatus/${name}"
+text="${data_dir}/text"
+
+[ -d "${data_dir}" ] || mkdir -p "${data_dir}"
+curl -fsSL "wttr.in?format=2" | tr -d '\n' > "${text}"

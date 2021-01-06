@@ -1,0 +1,23 @@
+#!/bin/sh
+
+( while true; do moonphase; sleep 1d; done )&
+( while true; do weather; sleep 1h; done )&
+( while true; do clock; sleep 1; done )&
+( while true; do internet; sleep 15; done )&
+
+separator=" │ "
+data_dir="${XDG_DATA_HOME:-$HOME/.local/share}/dwmstatus"
+moonphase="${data_dir}/moonphase/text"
+weather="${data_dir}/weather/text"
+clock="${data_dir}/clock/text"
+internet="${data_dir}/internet/text"
+files="${moonphase} ${weather} ${internet} ${clock}"
+while true; do
+  status=""
+  status="${separator}$(cat ${clock})${status}"
+  status="${separator}$(cat ${internet})${status}"
+  status="${separator}$(cat ${weather})${status}"
+  status="$(cat ${moonphase})${status}"
+  xsetroot -name "${status}"
+  sleep 1;
+done
