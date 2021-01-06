@@ -6,7 +6,7 @@
 ( while true; do internet; sleep 15; done )&
 
 separator=" │ "
-data_dir="${XDG_DATA_HOME:-$HOME/.local/share}/dwmstatus"
+data_dir="${XDG_DATA_HOME:-$HOME/.local/share}/status"
 moonphase="${data_dir}/moonphase/text"
 weather="${data_dir}/weather/text"
 clock="${data_dir}/clock/text"
