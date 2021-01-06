@@ -3,7 +3,7 @@
 # Shows the current moon phase.
 
 name=$(basename -- "$0")
-data_dir="${XDG_DATA_HOME:-$HOME/.local/share}/dwmstatus/${name}"
+data_dir="${XDG_DATA_HOME:-$HOME/.local/share}/status/${name}"
 text="${data_dir}/text"
 
 [ -d "${data_dir}" ] || mkdir -p "${data_dir}"
